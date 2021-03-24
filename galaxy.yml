@@ -1,0 +1,31 @@
+### REQUIRED
+
+# The namespace of the collection. This can be a company/brand/organization or product namespace under which all
+# content lives. May only contain alphanumeric lowercase characters and underscores. Namespaces cannot start with
+# underscores or numbers and cannot contain consecutive underscores
+namespace: shadowman
+
+# The name of the collection. Has the same character restrictions as 'namespace'
+name: reports
+
+# The version of the collection. Must be compatible with semantic versioning
+version: 1.0.0
+
+# The path to the Markdown (.md) readme file. This path is relative to the root of the collection
+readme: README.md
+
+# A list of the collection's content authors. Can be just the name or in the format 'Full Name <email> (url)
+# @nicks:irc/im.site#channel'
+authors:
+- Alexander Dworjan <adworjan@redhat.com>
+
+
+### OPTIONAL but strongly recommended
+
+# A short summary description of the collection
+description: Collection to create Linux and Windows server reports, patching reports and Networking reports including modules to pull server services and packages
+
+# A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
+# requirements as 'namespace' and 'name'
+tags: [report]
+
