@@ -27,10 +27,10 @@ This collection has been tested against RHEL 7 and 8, Windows Server 2016, IOS, 
 ### Modules
 Name | Description
 --- | ---
-[shadowman.reports.scan_packages](https://github.com/shadowman-lab/shadowman.reports/tree/main/docs/shadowman.reports.scan_packages.rst)|Scans for all packages on a Linux server
-[shadowman.reports.scan_services](https://github.com/shadowman-lab/shadowman.reports/tree/main/docs/shadowman.reports.scan_services.rst)|Scans for all services on a Linux server
-[shadowman.reports.win_scan_packages](https://github.com/shadowman-lab/shadowman.reports/tree/main/docs/shadowman.reports.win_scan_packages.rst)|Scans for all packages on a Windows server
-[shadowman.reports.win_scan_services](https://github.com/shadowman-lab/shadowman.reports/tree/main/docs/shadowman.reports.win_scan_services.rst)|Scans for all services on a Windows server
+[shadowman.reports.scan_packages](https://github.com/shadowman-lab/shadowman.reports/blob/main/docs/shadowman.reports.scan_packages.rst)|Scans for all packages on a Linux server
+[shadowman.reports.scan_services](https://github.com/shadowman-lab/shadowman.reports/blob/main/docs/shadowman.reports.scan_services.rst)|Scans for all services on a Linux server
+[shadowman.reports.win_scan_packages](https://github.com/shadowman-lab/shadowman.reports/blob/main/docs/shadowman.reports.win_scan_packages.rst)|Scans for all packages on a Windows server
+[shadowman.reports.win_scan_services](https://github.com/shadowman-lab/shadowman.reports/blob/main/docs/shadowman.reports.win_scan_services.rst)|Scans for all services on a Windows server
 
 <!--end collection content-->
 
