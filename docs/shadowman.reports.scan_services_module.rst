@@ -41,7 +41,7 @@ Examples
     tasks:
 
     - name: Scan services (Unix/Linux)
-      scan_services:
+      shadowman.reports.scan_services:
         
 
 Return Values

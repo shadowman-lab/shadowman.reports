@@ -70,7 +70,7 @@ Examples
 
     - name: Scan packages (Unix/Linux)
       scan_packages:
-        os_family: '{{ ansible_os_family }}'
+        shadowman.reports.os_family: '{{ ansible_os_family }}'
         
 
 Return Values

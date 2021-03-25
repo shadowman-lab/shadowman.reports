@@ -41,7 +41,7 @@ Examples
     tasks:
 
     - name: Scan Services
-      win_scan_services:
+      shadowman.reports.win_scan_services:
         
 
 Return Values

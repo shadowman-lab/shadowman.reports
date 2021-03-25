@@ -41,7 +41,7 @@ Examples
     tasks:
 
     - name: Scan Packages
-      win_scan_packages:
+      shadowman.reports.win_scan_packages:
         
 
 Return Values
