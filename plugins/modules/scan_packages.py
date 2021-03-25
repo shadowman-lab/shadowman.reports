@@ -8,10 +8,6 @@ module: scan_packages
 short_description: Return installed packages information as fact data
 description:
     - Return information about installed packages as fact data
-version_added: "1.9"
-options:
-requirements: [ ]
-author: Matthew Jones
 '''
 
 EXAMPLES = '''

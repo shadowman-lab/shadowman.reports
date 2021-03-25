@@ -9,10 +9,6 @@ module: scan_services
 short_description: Return service state information as fact data
 description:
      - Return service state information as fact data for various service management utilities
-version_added: "1.9"
-options:
-requirements: [ ]
-author: Matthew Jones
 '''
 
 EXAMPLES = '''
