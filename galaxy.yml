@@ -19,6 +19,7 @@ readme: README.md
 authors:
 - Alexander Dworjan <adworjan@redhat.com>
 
+repository: https://github.com/shadowman-lab/shadowman.reports
 
 ### OPTIONAL but strongly recommended
 
@@ -27,5 +28,5 @@ description: Collection to create Linux and Windows server reports, patching rep
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'
-tags: [report]
+tags: [reports, linux, windows, networking]
 
