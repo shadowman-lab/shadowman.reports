@@ -32,6 +32,10 @@
 {% for packagename in hostvars[linux_host].patchingresultdnf.results|sort %}
         <li> {{ packagename }} </li>
 {% endfor %}
+{% elif hostvars[linux_host].patchingresultdnf.changed is undefined %}
+        <li> Patching Failed </li>
+{% elif hostvars[linux_host].patchingresult.changed is undefined %}
+        <li> Patching Failed </li>
 {% else %}
         <li> Compliant </li>
 {% endif %}
