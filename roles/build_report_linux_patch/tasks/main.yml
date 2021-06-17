@@ -1,29 +1,29 @@
 - name: Create HTML report
-  template:
+  ansible.builtin.template:
     src: report.j2
     dest: "{{ file_path }}/linuxpatch.html"
   check_mode: no
 
 - name: Copy CSS over
-  copy:
+  ansible.builtin.copy:
     src: "css"
     dest: "{{ file_path }}"
     directory_mode: true
   check_mode: no
 
 - name: Copy logo over
-  copy:
+  ansible.builtin.copy:
     src: "webpage_logo.png"
     dest: "{{ file_path }}"
     directory_mode: true
   check_mode: no
 
 - name: Display link to Linux patch report
-  debug:
+  ansible.builtin.debug:
     msg: "Please go to http://{{ansible_host}}/linuxpatch.html"
 
 - name: Send Report via E-mail
-  mail:
+  community.general.mail:
     host: "{{ EMAIL_HOST }}"
     username: "{{ EMAIL_USERNAME }}"
     password: "{{ EMAIL_PASSWORD }}"
