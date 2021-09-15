@@ -53,14 +53,17 @@ $("document").ready(function(){
         </tr>
     </thead>
     <tbody>
-{% for packagename in hostvars[linux_host]['packages']|sort if hostvars[linux_host]['packages'] is defined %}
+{% if hostvars[linux_host]['packages'] is defined %}
+{% for packagename in hostvars[linux_host]['packages']|sort %}
+{% set package = hostvars[linux_host]['packages'][packagename][0] %}
         <tr>
-            <td>{{hostvars[linux_host]['packages'][packagename][0]['name']}}</td>
-            <td>{{hostvars[linux_host]['packages'][packagename][0]['source']}}</td>
-            <td>{{hostvars[linux_host]['packages'][packagename][0]['release']}}</td>
-            <td>{{hostvars[linux_host]['packages'][packagename][0]['version']}}</td>
+            <td>{{package['name']}}</td>
+            <td>{{package['source']}}</td>
+            <td>{{package['release']}}</td>
+            <td>{{package['version']}}</td>
         </tr>
 {% endfor %}
+{% endif %}
     </tbody>
 </table>
 </div>
@@ -80,13 +83,16 @@ $("document").ready(function(){
         </tr>
     </thead>
     <tbody>
-{% for servicesname in hostvars[linux_host]['services']|sort if hostvars[linux_host]['services'] is defined %}
+{% if hostvars[linux_host]['services'] is defined %}
+{% for servicesname in hostvars[linux_host]['services']|sort %}
+{% set service = hostvars[linux_host]['services'][servicesname] %}
         <tr>
-            <td>{{hostvars[linux_host]['services'][servicesname]['name']}}</td>
-            <td>{{hostvars[linux_host]['services'][servicesname]['state']}}</td>
-            <td>{{hostvars[linux_host]['services'][servicesname]['source']}}</td>
+            <td>{{service['name']}}</td>
+            <td>{{service['state']}}</td>
+            <td>{{service['source']}}</td>
         </tr>
 {% endfor %}
+{% endif %}
     </tbody>
 </table>
 </div>
