@@ -9,12 +9,6 @@
     dest: "{{ file_path }}"
     directory_mode: true
 
-- name: Copy js over
-  ansible.builtin.copy:
-    src: "js"
-    dest: "{{ file_path }}"
-    directory_mode: true
-
 - name: Copy logo over
   ansible.builtin.copy:
     src: "webpage_logo.png"
