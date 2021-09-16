@@ -136,7 +136,7 @@ $("document").ready(function(){
 {% for address in interface.ipv4 %}
 {% if address['address'] is defined %}
 {{address['address']}}
-{% elseif %}
+{% else %}
 dhcp
 {% endif %}
 {% if address['secondary'] is defined %}
