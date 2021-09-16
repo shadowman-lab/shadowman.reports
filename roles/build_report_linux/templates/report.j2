@@ -38,7 +38,7 @@ $("document").ready(function(){
 {% for linux_host in groups['tag_Insights']|sort %}
         <tr>
             <td><p class="hostname">{{hostvars[linux_host]['inventory_hostname']}}</p>
-{% if detailedreport == True %}
+{% if detailedreport == 'True' %}
 <!–– INTERNAL TABLE FOR PACKAGES --!>
 <div class="expand">
   <p class="expandclass">>Package Facts - Click to see details</p>
