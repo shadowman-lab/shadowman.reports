@@ -20,7 +20,7 @@
 
 - name: Display link to Patch report
   ansible.builtin.debug:
-    msg: "Please go to http://{{ansible_host}}/windowspatch.html"
+    msg: "Please go to http://{{ ansible_host }}/windowspatch.html"
 
 - name: Send Report via E-mail
   community.general.mail:

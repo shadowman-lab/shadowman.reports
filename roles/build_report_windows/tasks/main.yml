@@ -17,4 +17,4 @@
 
 - name: Display link to Windows report
   ansible.builtin.debug:
-    msg: "Please go to http://{{ansible_host}}/windows.html"
+    msg: "Please go to http://{{ ansible_host }}/windows.html"
