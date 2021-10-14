@@ -2,11 +2,14 @@ p.hostname {
     color: #000000;
     font-weight: bolder;
     font-size: large;
+    margin: auto;
+    width: 50%;
   }
   
   #subtable {
     background: #ebebeb;
     margin: 0px;
+    width: 100%;
   }
   
   #subtable tbody tr td {
@@ -39,14 +42,20 @@ p.hostname {
   
   body {
     background:#353a40;
+    padding: 0px;
+    margin: 0px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
   
   table {
     border-collapse: separate;
     background:#fff;
     @include border-radius(5px);
-    margin:50px auto;
     @include box-shadow(0px 0px 5px rgba(0,0,0,0.3));
+  }
+
+  .main_net_table {
+    margin:50px auto;
   }
   
   thead {
@@ -54,7 +63,6 @@ p.hostname {
   }
   
   thead th {
-    font-family: 'Patua One', monospace;
     font-size:16px;
     font-weight:400;
     color:#fff;
@@ -74,13 +82,11 @@ p.hostname {
   }
   
   tbody tr td {
-    font-family: 'Open Sans', sans-serif;
     font-weight:400;
     color:#5f6062;
     font-size:13px;
     padding:20px 20px 20px 20px;
     border-bottom:1px solid #e0e0e0;
-  
   }
   
   tbody tr:nth-child(2n) {
@@ -97,6 +103,10 @@ p.hostname {
     }
   }
   
+  td {
+    vertical-align: top;
+  }
+
   span.highlight {
       background-color: yellow;
   }
@@ -109,3 +119,84 @@ p.hostname {
            display:none;
            margin: 10px;
   }
+  
+  header {
+    width: 100%;
+    position: initial;
+    float: initial;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    height: 88px;
+    background-color: #171717;
+  }
+  
+  .header-container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: 1170px;
+    padding: 0;
+    float: initial;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-logo {
+    width: 137px;
+    border: 0;
+    margin: 0;
+    margin-left: 15px;
+  }
+  
+  .header-link {
+    margin-left: 40px;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-family: 'Red Hat Text';
+    font-weight: 500;
+  }
+  
+  .header-link:hover {
+    text-shadow: 0 0 0.02px white;
+    text-decoration: none;
+  }
+  
+  table.net_info td {
+    padding: 5px;
+}
+
+p.expandclass:hover {
+    text-decoration: underline;
+    color: #EE0000;
+    cursor: pointer;
+}
+
+.summary_info {
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #5F0000;
+    background: #EE0000;
+}
+
+div#net_content {
+    padding: 0px;
+    height: auto !important;
+}
+
+img.router_image {
+    vertical-align: middle;
+    padding: 0px 10px 10px 10px;
+    width: 50px;
+}
+
+table.net_info {
+    width: 100%;
+}
+
+p.internal_label {
+    color: #000000;
+}

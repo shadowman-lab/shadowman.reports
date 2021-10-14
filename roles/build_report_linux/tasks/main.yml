@@ -1,20 +1,24 @@
-- name: Create HTML report
+- name: create HTML report
   ansible.builtin.template:
     src: report.j2
     dest: "{{ file_path }}/linux.html"
 
-- name: Copy CSS over
+- name: copy CSS over
   ansible.builtin.copy:
     src: "css"
     dest: "{{ file_path }}"
     directory_mode: true
 
-- name: Copy logo over
+- name: copy logos over
   ansible.builtin.copy:
-    src: "webpage_logo.png"
+    src: "{{ item }}" 
     dest: "{{ file_path }}"
     directory_mode: true
+  loop:
+    - "webpage_logo.png"
+    - "redhat-ansible-logo.svg"
+    - "server.png"
 
-- name: Display link to Linux report
+- name: display link to inventory report
   ansible.builtin.debug:
     msg: "Please go to http://{{ ansible_host }}/linux.html"

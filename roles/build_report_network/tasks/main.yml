@@ -9,11 +9,15 @@
     dest: "{{ file_path }}"
     directory_mode: true
 
-- name: copy logo over
+- name: copy logos over
   ansible.builtin.copy:
-    src: "webpage_logo.png"
+    src: "{{ item }}" 
     dest: "{{ file_path }}"
     directory_mode: true
+  loop:
+    - "webpage_logo.png"
+    - "redhat-ansible-logo.svg"
+    - "router.png"
 
 - name: display link to inventory report
   ansible.builtin.debug:
