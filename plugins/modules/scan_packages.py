@@ -52,36 +52,38 @@ EXAMPLES = '''
 def rpm_package_list():
     import rpm
     trans_set = rpm.TransactionSet()
-    installed_packages = {}
+    installed_packages = []
     for package in trans_set.dbMatch():
-        package_details = dict(name=package[rpm.RPMTAG_NAME],
-                               version=package[rpm.RPMTAG_VERSION],
-                               release=package[rpm.RPMTAG_RELEASE],
-                               epoch=package[rpm.RPMTAG_EPOCH],
-                               arch=package[rpm.RPMTAG_ARCH],
-                               source='rpm')
-        if package_details['name'] not in installed_packages:
-            installed_packages[package_details['name']] = [package_details]
+        package_details = {
+                               'name':package[rpm.RPMTAG_NAME],
+                               'version':package[rpm.RPMTAG_VERSION],
+                               'release':package[rpm.RPMTAG_RELEASE],
+                               'epoch':package[rpm.RPMTAG_EPOCH],
+                               'arch':package[rpm.RPMTAG_ARCH],
+                               'source':'rpm' }
+        if installed_packages == []:
+            installed_packages = [package_details]
         else:
-            installed_packages[package_details['name']].append(package_details)
+            installed_packages.append(package_details)
     return installed_packages
 
 
 def deb_package_list():
     import apt
     apt_cache = apt.Cache()
-    installed_packages = {}
+    installed_packages = []
     apt_installed_packages = [pk for pk in apt_cache.keys() if apt_cache[pk].is_installed]
     for package in apt_installed_packages:
         ac_pkg = apt_cache[package].installed
-        package_details = dict(name=package,
-                               version=ac_pkg.version,
-                               arch=ac_pkg.architecture,
-                               source='apt')
-        if package_details['name'] not in installed_packages:
-            installed_packages[package_details['name']] = [package_details]
+        package_details = {
+                               'name':package,
+                               'version':ac_pkg.version,
+                               'arch':ac_pkg.architecture,
+                               'source':'apt'}
+        if installed_packages == []:
+            installed_packages = [package_details]
         else:
-            installed_packages[package_details['name']].append(package_details)
+            installed_packages.append(package_details)
     return installed_packages
 
 
