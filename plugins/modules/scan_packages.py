@@ -14,38 +14,26 @@ EXAMPLES = '''
 # Example fact output:
 # host | success >> {
 #    "ansible_facts": {
-#        "packages": {
-#              "libbz2-1.0": [
+#        "packages": [
 #                {
 #                  "version": "1.0.6-5",
 #                  "source": "apt",
 #                  "arch": "amd64",
 #                  "name": "libbz2-1.0"
-#                }
-#              ],
-#              "patch": [
+#                },
 #                {
 #                  "version": "2.7.1-4ubuntu1",
 #                  "source": "apt",
 #                  "arch": "amd64",
 #                  "name": "patch"
-#                }
-#              ],
-#              "gcc-4.8-base": [
+#                },
 #                {
 #                  "version": "4.8.2-19ubuntu1",
 #                  "source": "apt",
 #                  "arch": "amd64",
 #                  "name": "gcc-4.8-base"
-#                },
-#                {
-#                  "version": "4.9.2-19ubuntu1",
-#                  "source": "apt",
-#                  "arch": "amd64",
-#                  "name": "gcc-4.8-base"
 #                }
-#              ]
-#       }
+#       ]
 '''
 
 
