@@ -25,7 +25,8 @@
 
 {% if hostvars[windows_host].patchresult.updates is defined and hostvars[windows_host].patchresult.found_update_count|int > 0  %}
 {% for update in hostvars[windows_host].patchresult.updates %}
-            <li>{{update.title}}</li>
+{% set updatenum = hostvars[windows_host].patchresult.updates[update] %}
+            <li>{{updatenum.title}}</li>
 {% endfor %}
 {% else %}
             <li>Compliant</li>
