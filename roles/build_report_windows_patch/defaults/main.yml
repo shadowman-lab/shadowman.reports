@@ -1,0 +1,2 @@
+EMAIL_FROM: tower@shadowman.dev
+EMAIL_TO: "{{ to_emails.split(',') }}"
