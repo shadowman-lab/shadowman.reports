@@ -30,8 +30,8 @@
     port: "{{ EMAIL_PORT }}"
     subject: "Linux Patching Report"
     body: "{{ lookup('template', 'report.j2') }}"
-    from: tower@shadowman.dev
-    to: "alex@shadowman.dev"
+    from: "{{ EMAIL_FROM }}"
+    to: "{{ EMAIL_TO }}"
     subtype: html
   delegate_to: localhost  
   become: false
