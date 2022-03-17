@@ -95,9 +95,10 @@ function downloadCSVFile(csv_data) {
     // Create to temporary link to initiate
     // download process
     var temp_link = document.createElement('a');
+    var todayDate = new Date().toISOString().slice(0, 10);
 
     // Download csv file
-    temp_link.download = "windowspatching.csv";
+    temp_link.download = "windowspatching-" + todayDate + ".csv";
     var url = window.URL.createObjectURL(CSVFile);
     temp_link.href = url;
 
