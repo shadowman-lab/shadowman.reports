@@ -73,7 +73,7 @@ function tableToCSV() {
             // a row and push it to csvrow
             if ( j == cols.length-1 && i==0){}
             else{
-            csvrow.push(cols[j].textContent);
+            csvrow.push(cols[j].textContent.replace(/,/g, " "));
             }
 
        }
