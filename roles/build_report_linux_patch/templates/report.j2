@@ -6,6 +6,17 @@
 <body>
 <center>
 <h1>Ansible Linux Patching Report</h1>
+<style>
+@media print {
+   .noprint {
+        display: none !important;
+    }
+}
+</style>
+<div class="noprint">
+<button type="button" onclick="tableToCSV()">Download CSV</button>
+<input type="button" value="Print" onClick="window.print()">
+</div>
 </center>
 <table border = "1" cellpadding = "5" cellspacing = "5">
     <thead>
@@ -48,5 +59,63 @@
 {% for host in ansible_play_hosts %}
 <center><p>Created with Ansible on {{hostvars[host].ansible_date_time.iso8601}}</p></center>
 {% endfor %}
+<script type="text/javascript">
+function tableToCSV() {
+
+    // Variable to store the final csv data
+    var csv_data = [];
+
+    // Get each row data
+    var rows = document.getElementsByTagName('tr');
+    for (var i = 0; i < rows.length; i++) {
+
+        // Get each column data
+        var cols = rows[i].querySelectorAll('td,th');
+
+        // Stores each csv row data
+        var csvrow = [];
+        for (var j = 0; j < (cols.length); j++) {
+
+            // Get the text data of each cell of
+            // a row and push it to csvrow
+            if ( j == cols.length-1 && i==0){}
+            else{
+            csvrow.push(cols[j].textContent);
+            }
+
+       }
+       csv_data.push(csvrow.join(","));
+}
+
+    // combine each row data with new line character
+    csv_data = csv_data.join('\n');
+
+    // Call this function to download csv file
+    downloadCSVFile(csv_data);
+}
+function downloadCSVFile(csv_data) {
+
+    // Create CSV file object and feed our
+    // csv_data into it
+    CSVFile = new Blob([csv_data], { type: "text/csv" });
+
+    // Create to temporary link to initiate
+    // download process
+    var temp_link = document.createElement('a');
+
+    // Download csv file
+    temp_link.download = "linuxpatching.csv";
+    var url = window.URL.createObjectURL(CSVFile);
+    temp_link.href = url;
+
+    // This link should not be displayed
+    temp_link.style.display = "none";
+    document.body.appendChild(temp_link);
+
+    // Automatically click the link to trigger download
+    temp_link.click();
+    document.body.removeChild(temp_link);
+}
+</script>
 </body>
 </html>
