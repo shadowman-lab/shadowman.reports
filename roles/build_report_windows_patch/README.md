@@ -21,16 +21,27 @@ N/A
 Example Playbook
 ----------------
 
-The role can be used to create an html patching report on any number of Linux hosts using any number of Windows servers
+The role can be used to create an html patching report on a Linux host using any number of Windows servers
 
 
 ```
 ---
-- hosts: all
+- name: Windows patching playbook
+  hosts: all
 
   tasks:
-  - name: Run Windows Patch Report
-    import_role:
+  
+  - name: Install Windows Updates
+    ansible.windows.win_updates:
+      category_names: '*'
+      reboot: yes
+    register: patchresult
+    
+  - name: Build the report
+    ansible.builtin.include_role:
       name: shadowman.reports.build_report_windows_patch
+      apply:
+        delegate_to: report.shadowman.dev
+        run_once: true
       
 ```
