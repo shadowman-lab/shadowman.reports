@@ -26,11 +26,19 @@ The role can be used to create an html report on any number of Linux hosts using
 
 ```
 ---
-- hosts: all
-
+- name: Create Linux Report
+  hosts: all
   tasks:
-  - name: Run Linux Report
-    import_role:
-      name: shadowman.reports.build_report_linux
-      
+  
+    - name: Scan Systems for detailed report
+      ansible.builtin.include_role:
+        name: shadowman_scan_systems
+      when: detailedreport == 'True'
+
+    - name: Build the report
+      ansible.builtin.include_role:
+        name: shadowman.reports.build_report_linux
+        apply:
+          delegate_to: report.shadowman.dev
+          run_once: true      
 ```
