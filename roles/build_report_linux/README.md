@@ -1,7 +1,7 @@
 build_report_linux
 ========
 
-Installs Apache and creates a report based on facts from Linux services and packages modules
+Installs Apache and creates a report based on facts from Linux services and packages modules. Utilize var "detailedreport=false" if you do not need packages or services information
 
 Requirements
 ------------
@@ -30,10 +30,14 @@ The role can be used to create an html report on any number of Linux hosts using
   hosts: all
   tasks:
   
-    - name: Scan Systems for detailed report
-      ansible.builtin.include_role:
-        name: shadowman_scan_systems
-      when: detailedreport == 'True'
+    - name: Scan packages (Unix/Linux)
+      shadowman.reports.scan_packages:
+        os_family: '{{ ansible_os_family }}'
+      when: ansible_os_family != "Windows"
+
+    - name: Scan services (Unix/Linux)
+      shadowman.reports.scan_services:
+      when: ansible_os_family != "Windows"
 
     - name: Build the report
       ansible.builtin.include_role:
