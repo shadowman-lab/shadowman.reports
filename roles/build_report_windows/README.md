@@ -25,12 +25,23 @@ The role can be used to create an html report on any number of Linux hosts using
 
 
 ```
----
-- hosts: all
-
+- name: Create Windows Report
+  hosts: all
   tasks:
-  - name: Run Windows Report
-    import_role:
-      name: shadowman.reports.build_report_windows
+
+    - name: "Scan packages (Windows)"
+      shadowman.reports.win_scan_packages:
+      when: ansible_os_family == "Windows"
+
+    - name: "Scan services (Windows)"
+      shadowman.reports.win_scan_services:
+      when: ansible_os_family == "Windows"
+
+    - name: Build the report
+      ansible.builtin.include_role:
+        name: shadowman.reports.build_report_windows
+        apply:
+          delegate_to: report.shadowman.dev
+          run_once: true
       
 ```
