@@ -75,7 +75,7 @@ collapsible: true
         </tr>
     </thead>
     <tbody>
-{% for network_switch in groups['tag_Router']|sort %}
+{% for network_switch in ansible_play_hosts|sort %}
         <tr>
             <td class="summary_info">
               <div id="hostname">

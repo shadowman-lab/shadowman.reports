@@ -27,7 +27,7 @@
         </tr>
     </thead>
     <tbody>
-{% for windows_host in groups['tag_Windows']|sort %}
+{% for windows_host in ansible_play_hosts|sort %}
         <tr>
             <td>{{hostvars[windows_host]['inventory_hostname']}}</td>
             <td>{{hostvars[windows_host]['ansible_distribution']|default("none")}}</td>
@@ -49,9 +49,7 @@
 {% endfor %}
     </tbody>
 </table>
-{% for host in ansible_play_hosts %}
-<center><p>Created with Ansible on {{hostvars[host].ansible_date_time.iso8601}}</p></center>
-{% endfor %}
+<center><p>Created with Ansible on {{hostvars[ansible_play_hosts[0]].ansible_date_time.iso8601}}</p></center>
 <script type="text/javascript">
 function tableToCSV() {
 
