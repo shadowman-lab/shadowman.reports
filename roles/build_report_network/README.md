@@ -25,12 +25,35 @@ The role can be used to create an html report on any number of Linux hosts using
 
 
 ```
----
-- hosts: all
+- name: Build Networking Device Report
+  hosts: all
+  gather_facts: false
 
   tasks:
-  - name: Run Network Report
-    import_role:
+  
+  - name: Grab Arista eos facts
+    arista.eos.eos_facts:
+      gather_subset: 'min'
+      gather_network_resources: all
+    register: eosfacts
+    
+  - name: Grab Cisco ios facts
+    cisco.ios.ios_facts:
+      gather_subset: 'min'
+      gather_network_resources: all
+    register: iosfacts
+    
+  - name: Grab vyos facts
+    vyos.vyos.vyos_facts:
+      gather_subset: 'min'
+      gather_network_resources: all
+    register: vyosfacts
+    
+  - name: Build the report
+    ansible.builtin.include_role:
       name: shadowman.reports.build_report_network
+      apply:
+        delegate_to: report.shadowman.dev
+        run_once: true
       
 ```
