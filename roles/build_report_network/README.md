@@ -25,6 +25,7 @@ The role can be used to create an html report on any number of Linux hosts using
 
 
 ```
+---
 - name: Build Networking Device Report
   hosts: all
   gather_facts: false

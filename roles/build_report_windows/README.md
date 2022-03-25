@@ -26,6 +26,7 @@ The role can be used to create an html report on any number of Linux hosts using
 
 
 ```
+---
 - name: Create Windows Report
   hosts: all
   tasks:
