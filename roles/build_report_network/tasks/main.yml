@@ -2,18 +2,27 @@
   ansible.builtin.template:
     src: report.j2
     dest: "{{ file_path }}/network.html"
+    owner: root
+    group: root
+    mode: '0644'
 
 - name: copy CSS over
   ansible.builtin.copy:
     src: "css"
     dest: "{{ file_path }}"
     directory_mode: true
+    owner: root
+    group: root
+    mode: '0644'
 
 - name: copy logos over
   ansible.builtin.copy:
     src: "{{ item }}" 
     dest: "{{ file_path }}"
     directory_mode: true
+    owner: root
+    group: root
+    mode: '0644'
   loop:
     - "webpage_logo.png"
     - "redhat-ansible-logo.svg"
