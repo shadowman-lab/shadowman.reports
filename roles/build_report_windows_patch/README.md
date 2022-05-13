@@ -6,12 +6,12 @@ Installs Apache and creates a report based on facts from Windows update job
 Requirements
 ------------
 
-Must run on Apache server
+Must run on Apache server on RHEL
 
 Role Variables / Configuration
 --------------
 
-N/A
+Set patching results to patchresult variable
 
 Dependencies
 ------------

@@ -1,7 +1,7 @@
 build_report_network
 ========
 
-Installs Apache and creates a report based on facts from network devices
+Installs Apache and creates a report based on facts from network devices. Use in combination with facts modules for different Networking devices.
 
 Requirements
 ------------

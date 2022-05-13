@@ -1,7 +1,7 @@
 build_report_windows
 ========
 
-Installs Apache and creates a report based on facts from Windows services and packages modules. Utilize var "detailedreport=false" if you do not need packages or services information
+Installs Apache and creates a report based on facts from Windows services and packages modules. Utilize var "detailedreport=false" if you do not need packages or services information. Use in combination with win_scan_packages and win_scan_services modules included in the collection
 
 
 Requirements

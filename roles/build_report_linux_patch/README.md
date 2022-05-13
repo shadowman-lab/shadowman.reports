@@ -1,7 +1,7 @@
 build_report_linux_patch
 ========
 
-Installs Apache and creates a report based on facts from Linux patching
+Installs Apache and creates a report based on facts from RHEL patching. Could be expanded for patching other Linux distros but would require reviewing json output
 
 Requirements
 ------------
@@ -11,7 +11,7 @@ Must run on Apache server
 Role Variables / Configuration
 --------------
 
-N/A
+Must register yum results as patchingresult and dnf results as patchingresultdnf
 
 Dependencies
 ------------
@@ -21,7 +21,7 @@ N/A
 Example Playbook
 ----------------
 
-The role can be used to create an html report on any number of Linux hosts using any number of Linux servers about their patching results(yum and dnf)
+The role can be used to create an html report on any number of RHEL hosts using any number of RHEL servers about their patching results(yum and dnf)
 
 
 ```
