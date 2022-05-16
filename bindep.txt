@@ -1,3 +1,4 @@
-python3-rpm [platform:rpm]
+python3-rpm [(platform:redhat platform:base-py3)]
+rpm-python [(platform:redhat platform:base-py2)]
 python3-apt [platform:apt]
-python38-devel [platform:rpm]
+python38-devel [platform:centos-8 platform:rhel-8]
