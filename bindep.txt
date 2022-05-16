@@ -1,0 +1,2 @@
+python3-rpm [platform:rpm]
+python3-apt [platform:apt]
