@@ -11,7 +11,7 @@ Must run on Apache server on RHEL
 Role Variables / Configuration
 --------------
 
-Set patching results to patchresult variable
+Set patching results to patchresult variable. Set var sendemailreport to false if not also sending the report via e-mail
 
 Dependencies
 ------------

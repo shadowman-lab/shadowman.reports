@@ -11,7 +11,7 @@ Must run on Apache server
 Role Variables / Configuration
 --------------
 
-Must register yum results as patchingresult and dnf results as patchingresultdnf
+Must register yum results as patchingresult and dnf results as patchingresultdnf. Set var sendemailreport to false if not also sending the report via e-mail
 
 Dependencies
 ------------
