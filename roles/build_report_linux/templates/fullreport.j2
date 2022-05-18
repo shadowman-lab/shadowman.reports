@@ -96,7 +96,7 @@ collapsible: true
                   <img class="router_image" src="server.png"> {{ hostvars[linux_host]['inventory_hostname'].split('.')[0] }}</p>
                 </div>
 {% if detailedreport == 'True' %}
-<!–– INTERNAL TABLE FOR PACKAGES --!>
+<!-- INTERNAL TABLE FOR PACKAGES --!>
 <div id="accordion">
 <div class="ui-accordion ui-widget ui-helper-reset" role="tablist">
 <h3 class="ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons ui-accordion-header-collapsed ui-corner-all" role="tab" id="ui-id-3" aria-controls="ui-id-4" aria-selected="false" aria-expanded="false" tabindex="0">Package Facts</h3>
@@ -126,8 +126,8 @@ collapsible: true
 </div>
 </div>
 </div>
-<!–– END INTERNAL TABLE FOR PACKAGES --!>
-<!–– INTERNAL TABLE FOR SERVICES --!>
+<!-- END INTERNAL TABLE FOR PACKAGES --!>
+<!-- INTERNAL TABLE FOR SERVICES --!>
 <div id="accordion">
 <div class="ui-accordion ui-widget ui-helper-reset" role="tablist">
 <h3 class="ui-accordion-header ui-corner-top ui-state-default ui-accordion-icons ui-accordion-header-collapsed ui-corner-all" role="tab" id="ui-id-3" aria-controls="ui-id-4" aria-selected="false" aria-expanded="false" tabindex="0">Services Facts</h3>
@@ -156,7 +156,7 @@ collapsible: true
 </div>
 </div>
 </div>
-<!–– END INTERNAL TABLE FOR SERVICES --!>
+<!-- END INTERNAL TABLE FOR SERVICES --!>
 {% endif %}
 </td>
             <td>{{hostvars[linux_host]['ansible_pkg_mgr']|default("none")}}</td>
