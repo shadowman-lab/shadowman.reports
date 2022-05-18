@@ -21,7 +21,7 @@ N/A
 Example Playbook
 ----------------
 
-The role can be used to create an html report on any number of Linux hosts using any number of Linux servers about their services and packages installed
+The role can be used to create an html report on any number of Linux hosts using any number of Linux servers about their services and packages installed. Added in a boolean var usesingletemplate if running into issues with jinja not adding in the package/services facts.
 
 
 ```
