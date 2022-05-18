@@ -93,7 +93,6 @@ collapsible: true
                 <p class="hostname"> 
                   <img class="router_image" src="server.png"> {{ hostvars[windows_host]['inventory_hostname'].split('.')[0] }}</p>
                 </div>
-{% if detailedreport == 'True' %}
 <!-- INTERNAL TABLE FOR PACKAGES --!>
 <div id="accordion">
 <div class="ui-accordion ui-widget ui-helper-reset" role="tablist">
@@ -152,7 +151,6 @@ collapsible: true
 </div>
 </div>
 <!-- END INTERNAL TABLE FOR SERVICES --!>
-{% endif %}
 </td>
             <td>{{hostvars[windows_host]['ansible_os_family']|default("none")}}</td>
             <td>{{hostvars[windows_host]['ansible_distribution']|default("none")}}</td>
