@@ -1,10 +1,20 @@
-- name: create HTML report
+- name: create HTML report if jinja include works
   ansible.builtin.template:
     src: report.j2
     dest: "{{ file_path }}/windows.html"
     owner: root
     group: root
     mode: '0644'
+  when: usesingletemplate == false
+
+- name: create HTML report if jinja include doesn't work
+  ansible.builtin.template:
+    src: fullreport.j2
+    dest: "{{ file_path }}/windows.html"
+    owner: root
+    group: root
+    mode: '0644'
+  when: usesingletemplate == true
 
 - name: copy CSS over
   ansible.builtin.copy:
