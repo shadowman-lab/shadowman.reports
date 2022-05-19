@@ -45,4 +45,4 @@
   delegate_to: localhost  
   become: false
   check_mode: false
-  when: sendemailreport == true
+  when: sendemailreport

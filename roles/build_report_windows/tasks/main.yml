@@ -5,7 +5,7 @@
     owner: root
     group: root
     mode: '0644'
-  when: usesingletemplate == false
+  when: not usesingletemplate
 
 - name: create HTML report if jinja include doesn't work
   ansible.builtin.template:
@@ -14,7 +14,7 @@
     owner: root
     group: root
     mode: '0644'
-  when: usesingletemplate == true
+  when: usesingletemplate
 
 - name: copy CSS over
   ansible.builtin.copy:
