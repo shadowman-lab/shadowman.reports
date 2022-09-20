@@ -27,7 +27,7 @@
 
 - name: copy logos over
   ansible.builtin.copy:
-    src: "{{ item }}" 
+    src: "{{ item }}"
     dest: "{{ file_path }}"
     directory_mode: true
     owner: root
