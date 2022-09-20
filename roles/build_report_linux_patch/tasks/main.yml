@@ -42,7 +42,7 @@
     from: "{{ email_from }}"
     to: "{{ email_to }}"
     subtype: html
-  delegate_to: localhost  
+  delegate_to: localhost
   become: false
   check_mode: false
   when: sendemailreport
