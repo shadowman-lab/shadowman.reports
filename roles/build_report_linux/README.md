@@ -31,12 +31,14 @@ The role can be used to create an html report on any number of Linux hosts using
   tasks:
   
     - name: Scan packages (Unix/Linux)
-      shadowman.reports.scan_packages:
-        os_family: '{{ ansible_os_family }}'
+      ansible.builtin.package_facts:
+      register: result
       when: ansible_os_family != "Windows"
 
-    - name: Scan services (Unix/Linux)
-      shadowman.reports.scan_services:
+    - name: Organize results for loopings
+      ansible.builtin.set_fact:
+        packagefacts: "{{ result.ansible_facts.packages | dict2items }}"
+        cacheable: true
       when: ansible_os_family != "Windows"
 
     - name: Build the report
