@@ -1,4 +1,14 @@
-- name: create HTML report if jinja include works
+- name: Ensure Apache is installed
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+
+- name: Ensure Apache is started
+  ansible.builtin.service:
+    name: httpd
+    state: started
+
+- name: Create HTML report if jinja include works
   ansible.builtin.template:
     src: report.j2
     dest: "{{ file_path }}/linux.html"
@@ -7,7 +17,7 @@
     mode: '0644'
   when: not usesingletemplate
 
-- name: create HTML report if jinja include doesn't work
+- name: Create HTML report if jinja include doesn't work
   ansible.builtin.template:
     src: fullreport.j2
     dest: "{{ file_path }}/linux.html"
@@ -16,7 +26,7 @@
     mode: '0644'
   when: usesingletemplate
 
-- name: copy CSS over
+- name: Copy CSS over
   ansible.builtin.copy:
     src: "css"
     dest: "{{ file_path }}"
@@ -25,7 +35,7 @@
     group: root
     mode: '0644'
 
-- name: copy logos over
+- name: Copy logos over
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "{{ file_path }}"
@@ -38,6 +48,6 @@
     - "redhat-ansible-logo.svg"
     - "server.png"
 
-- name: display link to inventory report
+- name: Display link to inventory report
   ansible.builtin.debug:
     msg: "Please go to http://{{ ansible_host }}/linux.html"

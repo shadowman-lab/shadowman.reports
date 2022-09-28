@@ -1,4 +1,14 @@
-- name: create HTML report
+- name: Ensure Apache is installed
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+
+- name: Ensure Apache is started
+  ansible.builtin.service:
+    name: httpd
+    state: started
+
+- name: Create HTML report
   ansible.builtin.template:
     src: report.j2
     dest: "{{ file_path }}/network.html"
@@ -6,7 +16,7 @@
     group: root
     mode: '0644'
 
-- name: copy CSS over
+- name: Copy CSS over
   ansible.builtin.copy:
     src: "css"
     dest: "{{ file_path }}"
@@ -15,7 +25,7 @@
     group: root
     mode: '0644'
 
-- name: copy logos over
+- name: Copy logos over
   ansible.builtin.copy:
     src: "{{ item }}"
     dest: "{{ file_path }}"
@@ -28,6 +38,6 @@
     - "redhat-ansible-logo.svg"
     - "router.png"
 
-- name: display link to inventory report
+- name: Display link to inventory report
   ansible.builtin.debug:
     msg: "Please go to http://{{ ansible_host }}/network.html"

@@ -1,3 +1,13 @@
+- name: Ensure Apache is installed
+  ansible.builtin.yum:
+    name: httpd
+    state: present
+
+- name: Ensure Apache is started
+  ansible.builtin.service:
+    name: httpd
+    state: started
+
 - name: Create HTML report
   ansible.builtin.template:
     src: report.j2
