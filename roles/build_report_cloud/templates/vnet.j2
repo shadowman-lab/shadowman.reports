@@ -1,0 +1,31 @@
+<!-- INTERNAL TABLE FOR Ansible -->
+<div id="accordion">
+<div>
+<h3>{{ azure_sub_id | default('unknown') }}</h3>
+<div class="net_content">
+<p style=color:black;">There are <strong>{{ vnet_info.virtualnetworks | length }}</strong> Azure VNets configured and <strong>{{ interface_info.networkinterfaces | length }}</strong> network interfaces</p>
+
+<table class="net_info">
+<tbody>
+  <tr>
+    <th class="vpc_info">{{ '%-38s'|format('VNet Name')}}</th>
+    <th class="vpc_info">{{ '%-28s'|format('VNet ID') }}</th>
+    <th class="vpc_info">{{ '%-14s'|format('Network Interfaces') }}</th>
+    <th class="vpc_info">{{ '%-18s'|format('Address Prefixes') }}</th>
+    <th class="vpc_info" id="cidr_assoc">{{ '%-26s'|format('Subnets') }}</th>
+  </tr>
+  {% for vnet in vnet_info.virtualnetworks %}
+  <tr>
+  <td>{{ '%-38s'|format(vnet.name) }}</td>
+  <td>{{ '%-28s' | format(vnet.id) }}</td>
+  <td>{{ '%-14s'|format(interface_info.networkinterfaces | selectattr('virtual_network.name', 'equalto', vnet.name ) | length) -}}</td>
+  <td>{{ '%-18s'|format(vnet.address_prefixes[0]) }}</td>
+  <td>{{ '%-26s' | format(vnet.subnets | length | default('0')) }}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- END INTERNAL TABLE FOR Ansible -->

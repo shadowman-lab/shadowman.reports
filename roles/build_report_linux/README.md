@@ -1,7 +1,7 @@
 build_report_linux
 ========
 
-Installs Apache and creates a report based on facts from Linux services and packages modules. Utilize var "detailedreport=false" if you do not need packages or services information. Use in combination with scan_packages and scan_services modules included in the collection for the detailed report
+Installs Apache and creates a report based on facts from Linux services and packages modules. Utilize var "detailedreport=false" if you do not need packages or services information.
 
 Requirements
 ------------

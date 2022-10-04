@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Cloud Automation Report </title>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="css/new.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<script>
+$(function() {
+$( "#accordion > div" ).accordion({
+    header: "h3",
+    active: false,
+collapsible: true
+});
+});
+</script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+    <div class="header-container">
+      <a href="https://ansible.com">
+        <img
+          class="header-logo"
+          src="redhat-ansible-logo.svg"
+          title="Red Hat Ansible"
+          alt="Red Hat Ansible"
+        />
+      </a>
+    </div>
+  </header>
+<section>
+<center>
+<h1>Ansible Hybrid Cloud Automation Example Report</h1>
+</center>
+<table class="main_net_table">
+    <thead>
+        <tr>
+            <th>Public Cloud</th>
+            <th class="region_column">Subscription</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="summary_info">
+              <div id="hostname">
+                <p class="hostname"> 
+                  <img src="azure.png"> </p>
+              </div>
+              <div id="net_info_div">
+              <table class="net_info">
+              <tbody>
+                <tr>
+                  <td>Azure Client ID</td>
+                  <td class="sub_net_info">{{ azure_client | default('unknown') }}</td>
+                </tr>
+                <tr>
+                  <td>Subscription ID</td>
+                  <td class="sub_net_info">{{ azure_sub_id | default('unknown') }}</td>
+                </tr>
+              </tbody>
+              </table>
+          </div>
+            </td>
+            <td>
+            <!-- INTERNAL TABLE FOR Ansible -->
+<div id="accordion">
+<div>
+<h3>{{ azure_sub_id | default('unknown') }}</h3>
+<div class="net_content">
+<p style=color:black;">There are <strong>{{ vnet_info.virtualnetworks | length }}</strong> Azure VNets configured and <strong>{{ interface_info.networkinterfaces | length }}</strong> network interfaces</p>
+
+<table class="net_info">
+<tbody>
+  <tr>
+    <th class="vpc_info">{{ '%-38s'|format('VNet Name')}}</th>
+    <th class="vpc_info">{{ '%-28s'|format('VNet ID') }}</th>
+    <th class="vpc_info">{{ '%-14s'|format('Network Interfaces') }}</th>
+    <th class="vpc_info">{{ '%-18s'|format('Address Prefixes') }}</th>
+    <th class="vpc_info" id="cidr_assoc">{{ '%-26s'|format('Subnets') }}</th>
+  </tr>
+  {% for vnet in vnet_info.virtualnetworks %}
+  <tr>
+  <td>{{ '%-38s'|format(vnet.name) }}</td>
+  <td>{{ '%-28s' | format(vnet.id) }}</td>
+  <td>{{ '%-14s'|format(interface_info.networkinterfaces | selectattr('virtual_network.name', 'equalto', vnet.name ) | length) -}}</td>
+  <td>{{ '%-18s'|format(vnet.address_prefixes[0]) }}</td>
+  <td>{{ '%-26s' | format(vnet.subnets | length | default('0')) }}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- END INTERNAL TABLE FOR Ansible -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+<center><p>Created with</p><br><img src="webpage_logo.png" width="300">
+</center>
+</section>
+</div>
+</body>
+</html>

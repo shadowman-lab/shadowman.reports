@@ -54,16 +54,13 @@ An example for using this collection to scan a Linux host for packages:
 
 ```yaml
 ---
-- name: Scan packages of all Linux hosts
-  hosts: linux
-
-  
+- name: Scan packages of all Windows hosts
+  hosts: windows
 
   tasks:
 
-    - name: Scan packages (Unix/Linux)
-      shadowman.reports.scan_packages:
-        os_family: '{{ ansible_os_family }}'
+    - name: "Scan packages (Windows)"
+      shadowman.reports.win_scan_packages:
       
 ```
 
