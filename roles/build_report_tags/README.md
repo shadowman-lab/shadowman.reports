@@ -40,8 +40,6 @@ The role can be used to create an html report on the tags from Azure, RHV, and V
 
     - name: Get Azure VM Info
       azure.azcollection.azure_rm_virtualmachine_info:
-        tags:
-          - owner
       register: azure_info
 
     - name: Block for RHV
