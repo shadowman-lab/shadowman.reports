@@ -16,10 +16,10 @@
   </tr>
   {% for vnet in vnet_info.virtualnetworks %}
   <tr>
-  <td>{{ '%-38s'|format(vnet.name) }}</td>
-  <td>{{ '%-28s' | format(vnet.id) }}</td>
-  <td>{{ '%-14s'|format(interface_info.networkinterfaces | selectattr('virtual_network.name', 'equalto', vnet.name ) | length) -}}</td>
-  <td>{{ '%-18s'|format(vnet.address_prefixes[0]) }}</td>
+  <td>{{ '%-38s'|format(vnet.name | default('none')) }}</td>
+  <td>{{ '%-28s' | format(vnet.id | default('none')) }}</td>
+  <td>{{ '%-14s'|format(interface_info.networkinterfaces | selectattr('virtual_network.name', 'equalto', vnet.name ) | length | default('0')) -}}</td>
+  <td>{{ '%-18s'|format(vnet.address_prefixes | join(',') | default('none')) }}</td>
   <td>{{ '%-26s' | format(vnet.subnets | length | default('0')) }}</td>
   </tr>
   {% endfor %}
