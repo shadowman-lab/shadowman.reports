@@ -11,7 +11,7 @@
 - name: Create HTML report
   ansible.builtin.template:
     src: report.j2
-    dest: "{{ file_path }}/windowspatch.html"
+    dest: "{{ file_path }}/patch.html"
     owner: root
     group: root
     mode: '0644'
