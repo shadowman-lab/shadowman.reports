@@ -18,7 +18,7 @@
                 <td>{{ hostvars[network_switch]['ansible_network_resources']['ospfv2']['parameters']['router_id'] | default("N/A") }}</td>
             {% elif hostvars[network_switch]['ansible_network_resources']['ospfv2']['processes'] is defined %}
                 {% for ospvf2info in hostvars[network_switch]['ansible_network_resources']['ospfv2']['processes'] %}            
-                    <td>{{ ospvf2info['router_id'] }}</td>
+                    <td>{{ ospvf2info['router_id'] | default('N/A') }}</td>
                 {% endfor %}   
             {% endif %}
         </tr>
