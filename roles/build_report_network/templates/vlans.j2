@@ -15,7 +15,7 @@
     <tbody>
 {% for vlan in hostvars[network_switch]['ansible_network_resources']['vlans'] %}
         <tr>
-            <td>{{vlan['vlan_id']}}</td>
+            <td>{{vlan['vlan_id']| default("none")}}</td>
             <td>{{vlan['name']|default("none")}}</td>
             <td>{{vlan['state']|default("default")}}</td>
         </tr>

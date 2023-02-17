@@ -3,11 +3,11 @@
     <tbody>
         <tr>
             <td>Platform</td>
-            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_system']}}</td>
+            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_system']| default("N/A")}}</td>
         </tr>
         <tr>
             <td>Code Version</td>
-            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_version']}}</td>
+            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_version']| default("N/A")}}</td>
         </tr>
         <tr>
             <td>Model</td>
@@ -15,11 +15,11 @@
         </tr>
         <tr>
             <td>Serial Number</td>
-            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_serialnum']}}</td>
+            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_serialnum']| default("N/A")}}</td>
         </tr>
         <tr>
             <td>Transport</td>
-            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_api']}}</td>
+            <td class="sub_net_info">{{hostvars[network_switch]['ansible_net_api']| default("N/A")}}</td>
     </tbody>
 </table>
 </div>

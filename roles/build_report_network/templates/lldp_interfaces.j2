@@ -15,7 +15,7 @@
     <tbody>
 {% for interface in hostvars[network_switch]['ansible_network_resources']['lldp_interfaces'] %}
         <tr>
-            <td>{{interface['name']}}</td>
+            <td>{{interface['name']| default("none")}}</td>
             <td>{{interface['receive']|default("Not Configured")}}</td>
             <td>{{interface['transmit']|default("Not Configured")}}</td>
         </tr>

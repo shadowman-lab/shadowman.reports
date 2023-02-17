@@ -15,7 +15,7 @@
     <tbody>
 {% for interface in hostvars[network_switch]['ansible_network_resources']['l3_interfaces'] %}
         <tr>
-            <td>{{interface['name']}}</td>
+            <td>{{interface['name'| default("none")}}</td>
 <!–– INTERNAL IPv4 LOOP FOR L3_INTERFACES --!>
             <td>
 {% if interface.ipv4 is defined %}

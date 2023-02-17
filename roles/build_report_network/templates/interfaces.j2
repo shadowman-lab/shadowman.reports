@@ -20,10 +20,10 @@
     <tbody>
 {% for interface in hostvars[network_switch]['ansible_network_resources']['interfaces'] %}
         <tr>
-            <td>{{interface['name']}}</td>
+            <td>{{interface['name']| default("none")}}</td>
             <td>{{interface['description']|default("none")}}</td>
             <td>{{interface['duplex']|default("default")}}</td>
-            <td>{{interface['enabled']}}</td>
+            <td>{{interface['enabled']| default("N/A")}}</td>
             <td>{{interface['mtu']|default("default")}}</td>
             <td>{{interface['speed']|default("default")}}</td>
         </tr>
