@@ -10,9 +10,7 @@
             <th>VRF</th>
             <th>Address-Family</th>
             <th>Route</th>
-            <th>Interface</th>
-            <th>Next-Hop Address</th>
-            <th>Global</th>
+            <th>Next-Hop</th>
         </tr>
     </thead>
     <tbody>
@@ -23,11 +21,20 @@
 <td>{{ address_family['afi']|default("N/A") }}</td>
 {% for routes in address_family['routes'] %}
 <td>{{ routes['dest']|default("N/A") }}</td>
+<td><table><tbody>
+<tr>
+    <th>Interface</th>
+    <th>Address</th>
+    <th>Global</th>
+</tr>
 {% for next_hops in routes['next_hops'] %}
+<tr>
 <td>{{ next_hops['interface']|default("N/A") }}</td>
 <td>{{ next_hops['forward_router_address']|default("N/A") }}</td>
 <td>{{ next_hops['global']|default("N/A") }}</td>
+</tr>
 {% endfor %}
+</tbody></table></td>
 {% endfor %}
 {% endfor %}
         </tr>
