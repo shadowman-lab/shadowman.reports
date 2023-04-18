@@ -56,7 +56,7 @@ The role can be used to create an html report on any number of RHEL hosts using 
         
   - name: Build the report
     ansible.builtin.include_role:
-      name: build_report_certs
+      name: shadowman.reports.build_report_certs
       apply:
         delegate_to: report.shadowman.dev
         run_once: true
