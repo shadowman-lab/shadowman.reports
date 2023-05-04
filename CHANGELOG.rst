@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+1.6.0 - Released 04-May-2023
+----------------------------
+
+Changes
+```````
+- Added azure report which has detailed Azure information across all regions
+
 1.5.0 - Released 18-Apr-2023
 ----------------------------
 
