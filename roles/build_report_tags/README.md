@@ -11,7 +11,7 @@ Must run on Apache server
 Role Variables / Configuration
 --------------
 
-Must register rhv results as rhv_info, azure results as azure_info, and vmware results as vmware_info. Set var sendemailreport to false if not also sending the report via e-mail
+Must register rhv results as rhv_info, azure results as azure_info, aws results as aws_info, and vmware results as vmware_info. Set var sendemailreport to false if not also sending the report via e-mail
 
 Dependencies
 ------------
@@ -41,6 +41,19 @@ The role can be used to create an html report on the tags from Azure, RHV, and V
     - name: Get Azure VM Info
       azure.azcollection.azure_rm_virtualmachine_info:
       register: azure_info
+
+    - name: Get AWS regions
+      amazon.aws.aws_region_info:
+        region: "us-east-2"
+      register: allregions
+
+    - name: Get AWS VM Info
+      amazon.aws.ec2_instance_info:
+        region: "{{ item.region_name }}"
+      loop: "{{ allregions.regions }}"
+      loop_control:
+        label: "{{ item.region_name }}"
+      register: aws_info
 
     - name: Block for RHV
       block:

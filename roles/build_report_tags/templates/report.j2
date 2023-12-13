@@ -54,6 +54,19 @@
         </tr>
 {% endfor %}
 {% endif %}
+{% if aws_info.results is defined %}
+{% for aws_regions in aws_info.results %}
+{% if aws_regions.instances is defined %}
+{% for aws_host in aws_regions.instances %}
+        <tr>
+            <td>{{ aws_host.tags.Name }}</td>
+            <td>{{ aws_host.tags.owner | default('no owner') }},{{ aws_host.tags.env | default('no environment') }},{{ aws_host.tags.operating_system | default('no operating system') }}</td>
+            <td>AWS</td>
+        </tr>
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
     </tbody>
 </table>
 <center><p>Created with Ansible</p></center>

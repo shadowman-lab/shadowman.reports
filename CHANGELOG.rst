@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+1.7.1 - Released 13-Dec-2023
+----------------------------
+
+Changes
+```````
+- Added aws ability to tags report
+
 1.7.0 - Released 13-Dec-2023
 ----------------------------
 
