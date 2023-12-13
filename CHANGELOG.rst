@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+1.7.0 - Released 13-Dec-2023
+----------------------------
+
+Changes
+```````
+- Added aws report which has detailed AWS information across all regions
+
 1.6.0 - Released 04-May-2023
 ----------------------------
 

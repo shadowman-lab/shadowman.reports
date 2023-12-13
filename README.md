@@ -1,6 +1,6 @@
 # Shadowman Reports Collection
 
-The Ansible Shadowman Reports collection includes a variety of Ansible content to help automate the creation of Linux, Windows and Networking reports.
+The Ansible Shadowman Reports collection includes a variety of Ansible content to help automate the creation of Linux, Windows, Cloud, and Networking reports.
 
 <!--start requires_ansible-->
 ## Ansible version compatibility
@@ -49,7 +49,7 @@ collections:
 
 ### Using Shadowman Reports Ansible Collection
 
-An example for using this collection to scan a Linux host for packages:
+An example for using this collection to scan a Windows host for packages:
 
 
 ```yaml
