@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+1.8.0 - Released 10-Jul-2024
+----------------------------
+
+Changes
+```````
+- Added Google Cloud report
+
 1.7.1 - Released 13-Dec-2023
 ----------------------------
 

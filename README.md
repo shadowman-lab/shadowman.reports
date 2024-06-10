@@ -14,7 +14,7 @@ PEP440 is the schema used to describe the versions of Ansible.
 
 ## Tested with Ansible
 
-This collection has been tested against RHEL 7 and 8, Windows Server 2016, IOS, EOS, VyOS
+This collection has been tested against RHEL 7, 8, 9, Windows Server 2016, IOS, EOS, VyOS
 <!-- List the versions of Ansible the collection has been tested with. Must match what is in galaxy.yml. -->
 
 ## External requirements
@@ -61,7 +61,7 @@ An example for using this collection to scan a Windows host for packages:
 
     - name: "Scan packages (Windows)"
       shadowman.reports.win_scan_packages:
-      
+
 ```
 
 

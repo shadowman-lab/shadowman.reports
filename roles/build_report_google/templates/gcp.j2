@@ -1,0 +1,52 @@
+<!-- INTERNAL TABLE FOR Ansible -->
+
+{% set gcp_vars = hostvars["localhost"] %}
+{% set real_location = gcp_vars.all_zones.stdout_lines %}
+
+<div id="accordion">
+  {% for location in gcp_vars.gcp_vms.results %}
+
+    {% set running = location.resources | selectattr('status', 'equalto', "RUNNING") | length %}
+    {% set stopped = location.resources | selectattr('status', 'equalto', "TERMINATED") | length %}
+
+    <div>
+      <h3>
+        <div id="region_title">{{ location.item }}</div>
+          {% if location.resources | length > 0 %}
+
+            <div class="instances_running"><span class="ui-accordion-header-icon ui-icon ui-icon-power"></span>({{ running }} Running VMs)
+            </div>
+            <div class="instances_stopped"><span class="ui-accordion-header-icon ui-icon ui-icon-stop"></span>{{ stopped }} Stopped VMs  ({{ location.resources | length }} Total Virtual Machines)
+            </div>
+
+          {% endif %}
+      </h3>
+      <div class="net_content">
+        <table class="net_info">
+          <tbody>
+            <tr>
+              <th class="vpc_info">VM Name</th>
+              <th class="vpc_info">VM ID </th>
+              <th class="vpc_info">VM Status</th>
+              <th class="vpc_info">Private IP</th>
+              <th class="vpc_info">Public IP</th>
+              <th class="vpc_info">VM Labels</th>
+            </tr>
+            {% for vm in location.resources %}
+              <tr>
+                <td>{{ vm.name }}</td>
+                <td>{{ vm.id }}</td>
+                <td>{{ vm.status }}</td>
+                <td>{{ vm.networkInterfaces[0].networkIP | default ("No Private IP") }}</td>
+                <td>{{ vm.networkInterfaces[0].accessConfigs[0].natIP | default ("No Public IP") }}</td>
+                <td>{{ vm.labels | default ("No Labels") }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- END INTERNAL TABLE FOR Ansible -->
