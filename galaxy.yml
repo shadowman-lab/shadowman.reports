@@ -12,7 +12,7 @@ dependencies:
   community.general: '>=1.0.0'
 
 # The version of the collection. Must be compatible with semantic versioning
-version: 1.8.0
+version: 1.9.0
 
 # The path to the Markdown (.md) readme file. This path is relative to the root of the collection
 readme: README.md
@@ -29,7 +29,7 @@ repository: https://github.com/shadowman-lab/shadowman.reports
 ### OPTIONAL but strongly recommended
 
 # A short summary description of the collection
-description: Collection to create Linux and Windows server reports, Azure, GCP, AWS reports, patching report, tagging reports, and Networking reports including modules to pull server services and packages
+description: Collection to create Linux and Windows server reports, Active Directory, Azure, GCP, AWS reports, patching report, tagging reports, and Networking reports including modules to pull server services and packages
 
 # A list of tags you want to associate with the collection for indexing/searching. A tag name has the same character
 # requirements as 'namespace' and 'name'

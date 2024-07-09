@@ -1,6 +1,6 @@
 # Shadowman Reports Collection
 
-The Ansible Shadowman Reports collection includes a variety of Ansible content to help automate the creation of Linux, Windows, Cloud, and Networking reports.
+The Ansible Shadowman Reports collection includes a variety of Ansible content to help automate the creation of Linux, Windows, Cloud, Active Directory, and Networking reports.
 
 <!--start requires_ansible-->
 ## Ansible version compatibility

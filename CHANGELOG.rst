@@ -1,7 +1,14 @@
 Shadowman Report Changes by Release
 =================================
 
-1.8.0 - Released 10-Jul-2024
+1.9.0 - Released 9-Jul-2024
+----------------------------
+
+Changes
+```````
+- Added Active Directory Report report
+
+1.8.0 - Released 10-Jun-2024
 ----------------------------
 
 Changes
