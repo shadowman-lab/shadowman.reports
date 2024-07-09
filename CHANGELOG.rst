@@ -6,7 +6,7 @@ Shadowman Report Changes by Release
 
 Changes
 ```````
-- Added Active Directory Report report
+- Added Active Directory Report
 
 1.8.0 - Released 10-Jun-2024
 ----------------------------
