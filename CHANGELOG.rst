@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+1.9.1 - Released 18-Nov-2024
+----------------------------
+
+Changes
+```````
+- Changed default var of detailedreport in Linux and Windows report to be a String
+
 1.9.0 - Released 9-Jul-2024
 ----------------------------
 
