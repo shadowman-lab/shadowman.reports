@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+2.0.1 - Released 30-Dec-2025
+----------------------------
+
+Changes
+```````
+- Center patching tables via CSS
+
 2.0.0 - Released 30-Dec-2025
 ----------------------------
 
