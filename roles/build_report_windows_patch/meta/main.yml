@@ -1,4 +1,5 @@
 ---
+requires_ansible: ">=2.15"
 galaxy_info:
   author: Alex Dworjan
   description: Build Windows Patching Report
