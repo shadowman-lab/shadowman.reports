@@ -35,17 +35,11 @@
             <td>{{hostvars[linux_host]['ansible_distribution_version']|default("none")}}</td>
             <td>
               <ul>
-{% if hostvars[linux_host].patchingresult.changed|default("false",true) == true %}
-{% for packagename in hostvars[linux_host].patchingresult.changes.updated|sort %}
-        <li> {{ packagename[0] }} - {{ packagename[1] }} </li>
-{% endfor %}
-{% elif hostvars[linux_host].patchingresultdnf.changed|default("false",true) == true %}
+{% if hostvars[linux_host].patchingresultdnf.changed|default("false",true) == true %}
 {% for packagename in hostvars[linux_host].patchingresultdnf.results|sort %}
         <li> {{ packagename }} </li>
 {% endfor %}
 {% elif hostvars[linux_host].patchingresultdnf.changed is undefined %}
-        <li> Patching Failed </li>
-{% elif hostvars[linux_host].patchingresult.changed is undefined %}
         <li> Patching Failed </li>
 {% else %}
         <li> Compliant </li>

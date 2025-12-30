@@ -1,6 +1,13 @@
 Shadowman Report Changes by Release
 =================================
 
+2.0.0 - Released 30-Dec-2025
+----------------------------
+
+Changes
+```````
+- Removed all usage of yum and switched to dnf only
+
 1.9.1 - Released 18-Nov-2024
 ----------------------------
 
