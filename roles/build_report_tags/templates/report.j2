@@ -58,10 +58,10 @@
         </tr>
 {% endfor %}
 {% endif %}
-{% if vmware_info.virtual_machines is defined %}
-{% for vmware_host in vmware_info.virtual_machines %}
+{% if vmware_info.vms is defined %}
+{% for vmware_host in vmware_info.vms if not vmware_host.hw_is_template %}
         <tr>
-            <td>{{ vmware_host.guest_name }}</td>
+            <td>{{ vmware_host.hw_name }}</td>
             <td>{{ vmware_host | json_query('tags[*].name') | join(',') | default('no tags') }}</td>
             <td>VMWare</td>
         </tr>

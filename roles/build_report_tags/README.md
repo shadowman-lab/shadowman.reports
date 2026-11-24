@@ -32,10 +32,11 @@ The role can be used to create an html report on the tags from Azure, RHV, and V
   tasks:
 
     - name: Get VMWare tag info
-      community.vmware.vmware_vm_info:
+      vmware.vmware.vm_info:
         validate_certs: false
-        show_tag: true
-        vm_type: "vm"
+        gather_tags: true
+        folder: "/Shadowman-DC/vm/Lab virtual machine"
+        folder_paths_are_absolute: true
       register: vmware_info
 
     - name: Get Azure VM Info
@@ -63,7 +64,7 @@ The role can be used to create an html report on the tags from Azure, RHV, and V
           username: "{{ rhvm_user }}"
           password: "{{ rhvm_password }}"
           ca_file: "{{ rhvm_cafile | default(omit) }}"
-          insecure: "{{ rhvm_insecure | default(true) }}"  
+          insecure: "{{ rhvm_insecure | default(true) }}"
 
       - name: Get RHV VM info
         redhat.rhv.ovirt_vm_info:
@@ -83,5 +84,5 @@ The role can be used to create an html report on the tags from Azure, RHV, and V
         name: shadowman.reports.build_report_tags
         apply:
           delegate_to: report.shadowman.dev
-          run_once: true     
+          run_once: true
 ```
